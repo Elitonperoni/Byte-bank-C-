@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-ByteBank", "01-ByteBank\01-ByteBank.csproj", "{2F0CECD4-E561-4408-9D47-D28CCEBA4E13}"
 EndProject
@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-ByteBank", "05-ByteBank\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06-bytebank", "06-bytebank\06-bytebank.csproj", "{B8E4251D-C2A8-4823-B208-C8309750B340}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07-Byte-Bank", "07-Byte-Bank\07-Byte-Bank.csproj", "{28E6B5F1-FEA8-4034-BE23-DE30DA3A10B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07-Byte-Bank", "07-Byte-Bank\07-Byte-Bank.csproj", "{28E6B5F1-FEA8-4034-BE23-DE30DA3A10B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "byte-bank-ADM", "byte-bank-ADM\byte-bank-ADM.csproj", "{8895AD61-F1FB-4061-8EB9-B63548781A28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{28E6B5F1-FEA8-4034-BE23-DE30DA3A10B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E6B5F1-FEA8-4034-BE23-DE30DA3A10B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28E6B5F1-FEA8-4034-BE23-DE30DA3A10B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8895AD61-F1FB-4061-8EB9-B63548781A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8895AD61-F1FB-4061-8EB9-B63548781A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8895AD61-F1FB-4061-8EB9-B63548781A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8895AD61-F1FB-4061-8EB9-B63548781A28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
