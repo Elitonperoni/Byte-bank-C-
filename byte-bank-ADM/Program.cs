@@ -1,4 +1,5 @@
 ﻿using byte_bank_ADM.Funcionarios;
+using byte_bank_ADM.ParceriaComercial;
 using byte_bank_ADM.SistemaInterno;
 using byte_bank_ADM.Utilitário;
 
@@ -69,19 +70,13 @@ void UsarSistema()
     ursula.Nome = "Ursula Alcantara";
     ursula.Senha = "3123";
 
-    Auxiliar henrique = new Auxiliar("85238481283");
-    henrique.Nome = "Henrique Carvalho";
-    henrique.Senha = "852";
-
-    Designer clovis = new Designer("9521752");
-    clovis.Senha = "654";
+    ParceiroComercial caio = new ParceiroComercial();
+    caio.Senha = "999";
 
     sistema.Logar(ingrid, "123");
     sistema.Logar(ursula, "999");
-    sistema.Logar(henrique, "852");
-
-
-
+    sistema.Logar(caio, "999");
+    
 
 }
 

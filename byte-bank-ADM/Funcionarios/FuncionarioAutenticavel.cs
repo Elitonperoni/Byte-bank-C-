@@ -7,26 +7,18 @@ using System.Threading.Tasks;
 
 namespace byte_bank_ADM.Funcionarios
 {
-    public class Diretor : FuncionarioAutenticavel
-    {     
-        public override double GetBonificacao()
-        {
-            return this.Salario;
-        }
-
-        public Diretor(string cpf) : base(cpf, 5000)
+    public abstract class FuncionarioAutenticavel : Funcionario, IAutenticavel
+    {
+        protected FuncionarioAutenticavel(string cpf, double salario) : base(cpf, salario)
         {
 
         }
-        public override void AumentarSalario()
-        {
-            this.Salario *= 1.15;
-        }
+
+        public string Senha { get; set; }
 
         public bool Autenticar(string senha)
         {
             return this.Senha == senha;
         }
-
     }
 }
