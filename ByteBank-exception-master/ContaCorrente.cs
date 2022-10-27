@@ -1,5 +1,7 @@
 ﻿// using _05_ByteBank;
 
+using ByteBank_exception_master;
+
 namespace ByteBank
 {
     public class ContaCorrente
@@ -10,6 +12,9 @@ namespace ByteBank
 
         public static int TotalDeContasCriadas { get; private set; }
 
+        public int ContadorSaquesNaoPermitidos { get; private set; }
+
+        public int ContadorTransferenciasNaoPermitidas { get; private set; }
 
         private int _agencia;
         public int Agencia
@@ -18,7 +23,7 @@ namespace ByteBank
             {
                 return _agencia;
             }
-            set
+            private set
             {
                 if (value <= 0)
                 {
@@ -28,7 +33,7 @@ namespace ByteBank
                 _agencia = value;
             }
         }
-        public int Numero { get; set; }
+        public int Numero { get; private set; }
 
         private double _saldo = 100;
 
@@ -55,20 +60,29 @@ namespace ByteBank
             Agencia = agencia;
             Numero = numero;
 
-            TaxaOperacao = 30 / TotalDeContasCriadas;
+            if(agencia <= 0)
+            {
+                throw new ArgumentException("O argumento agencia deve ser maiores que zero", nameof(agencia));
+            }
+            if (numero <= 0)
+            {
+                throw new ArgumentException("O argumento numero deve ser maiores que zero", nameof(numero));
+            }
+
             TotalDeContasCriadas++;
         }
 
 
-        public bool Sacar(double valor)
+        public void Sacar(double valor)
         {
             if (_saldo < valor)
             {
-                return false;
+                ContadorSaquesNaoPermitidos++;
+                throw new SaldoInsuficienteException("Saldo insuficiente para saque no valor de " + valor); 
             }
 
             _saldo -= valor;
-            return true;
+           
         }
 
         public void Depositar(double valor)
@@ -79,10 +93,16 @@ namespace ByteBank
 
         public bool Transferir(double valor, ContaCorrente contaDestino)
         {
-            if (_saldo < valor)
+            try
             {
-                return false;
+                Sacar(valor)
             }
+            catch(SaldoInsuficienteException ex)
+            {
+                ContadorTransferenciasNaoPermitidas++;
+                throw new OperacaoFinanceiraException("Operação não realizada ", ex);
+            }
+
 
             _saldo -= valor;
             contaDestino.Depositar(valor);
